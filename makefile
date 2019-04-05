@@ -30,7 +30,7 @@ build/SudokuSolver.o: src/SudokuSolver.cpp
 
 test: $(TESTER)
 
-$(TESTER): $(TEST_OBJECT) test/testSolver.cpp $(OBJECTS)
+$(TESTER): $(TEST_OBJECT) test/testSolver.cpp test/testBoard.cpp $(OBJECTS)
 	$(CC) $(CPPFLAGS) $^ -o $@
 
 $(TEST_OBJECT): $(TEST_MAIN)

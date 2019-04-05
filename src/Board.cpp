@@ -258,21 +258,37 @@ void Board::display(std::ostream& outs) const
 {
 	for(int i = 0; i < 9; i++)
 	{
-		outs << "|";
+		outs << " ";
 
 		for(int j = 0; j < 9; j++)
 		{
+			//print 3 nums and then a separator
+			if(j == 3 || j == 6)
+				outs << "|| ";
+
+			
 			//print space if the board is empty there
 			if(this->board[(i * 9) + j] == -1)
-				outs << "   |";
+				outs << " ";
 			else
-				outs << " " << this->board[(i * 9) + j] << " |";
+				outs << this->board[(i * 9) + j];
 
-			//special markers to separate the grids
+			//print a separating space
+			if(j != 8)
+				outs << " ";
 			
 		}
-
+		
 		outs << "\n";
+
+		//dividing line between grids
+		if(i == 2 || i == 5)
+		{
+			std::string divide(23, '=');
+			outs << divide << "\n";
+		}
+		
+
 	}
 }
 
