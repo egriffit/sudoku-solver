@@ -132,6 +132,7 @@ TEST_CASE("Comparison operators are called", "[compare]")
 {
 	Board A;
 	Board B;
+	
 
 	//boards should be equal
 	REQUIRE( B == A );
@@ -162,6 +163,5 @@ TEST_CASE("Assignment operator is used", "[assignment]")
 
 	REQUIRE( A == B );
 
-	std::cerr << "Board tester is reached" << std::endl;
 }
 

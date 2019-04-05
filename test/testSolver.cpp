@@ -114,7 +114,7 @@ TEST_CASE("Driver for the solver is called", "[solving]")
 
 	SudokuSolver A(tester);
 	A.solveDriver();
-
+	
 	REQUIRE( A.board == solved );
 }
 
