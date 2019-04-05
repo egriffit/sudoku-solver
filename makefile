@@ -49,3 +49,6 @@ help:
 clean:
 	rm build/*.o
 
+clean_test:
+	rm $(TEST_OBJECT) $(TESTER)
+
