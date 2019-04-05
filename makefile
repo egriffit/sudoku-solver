@@ -5,6 +5,7 @@ SRCDIR:=src
 BUILDDIR:=build
 TESTDIR:=test
 
+$(shell mkdir -p $(BUILDDIR))
 
 SOURCES:=$(wildcard $(SRCDIR)/*.cpp)
 OBJECTS:=$(patsubst $(SRCDIR)/%.cpp,$(BUILDDIR)/%.o,$(SOURCES))
@@ -47,7 +48,7 @@ help:
 
 
 clean:
-	rm build/*.o
+	rm $(OBJECTS)
 
 clean_test:
 	rm $(TEST_OBJECT) $(TESTER)
