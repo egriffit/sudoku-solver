@@ -66,6 +66,14 @@ class SudokuSolver
         void solve8Full(int n, char type);
 
         /**
+         * Search through the rows and columns to attempt to fill in a number
+         *
+         * @param b block number to analyze
+         * @param toSearch number to attempt to place
+         */
+        void crossCheckBlock(int b, int toSearch);
+
+        /**
          * Driver for all solving processes
          */
         void solveDriver();
