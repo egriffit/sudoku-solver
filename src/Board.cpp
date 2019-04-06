@@ -314,4 +314,24 @@ void Board::read(std::istream& ins)
     }
 }
 
+//----------------------------------------------------------------------------
+bool Board::searchFor(int n, int toSearch, char type) const
+{
+    std::vector<int> target;
+
+    if(type == 'r')
+        target = this->getRow(n);
+    if(type == 'c')
+        target = this->getCol(n);
+    if(type == 'b')
+        target = this->getBlock(n);
+
+    for(int cell: target)
+    {
+        if(cell == toSearch)
+            return true;
+    }
+
+    return false;
+}
 

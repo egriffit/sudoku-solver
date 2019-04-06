@@ -207,6 +207,17 @@ class Board
         bool isColFull(int c) const;
 
         /**
+         * Search a row/block/col for a certain number
+         *
+         * @param n row/block/col number
+         * @param toSearch number to search for
+         * @param type character determining row('r'), column('c'), or block('b')
+         *
+         * @return true if the row/col/block has the desired number
+         */
+        bool searchFor(int n, int toSearch, char type) const;
+
+        /**
          * Overloaded asignment operator
          *
          * @param src Board to be assigned to left hand side Board

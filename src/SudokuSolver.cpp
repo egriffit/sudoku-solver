@@ -142,9 +142,32 @@ bool SudokuSolver::operator<(const SudokuSolver& rhs) const
 //----------------------------------------------------------------------------
 void SudokuSolver::solveDriver()
 {
-    while(!(this->board.isFull()))
+    Board oldBoard;
+
+    while(!(this->board == oldBoard))
     {
-        //try to find rows/cols/blocks with 1 empty space
+        //keep track of the old board to track changes
+        oldBoard = this->board;
+
+
+        // cross check all missing numbers in all blocks
+        for(int b = 0; b < 9; b++)
+        {
+            for(int i = 1; i < 10; i++)
+            {
+                /*
+                std::cerr << "Searching for " << i << " in block " << b
+                          << ": " << !(this->board.searchFor(b, i, 'b'))
+                          << "\n";
+                */
+
+                if(!(this->board.searchFor(b, i, 'b')))
+                    this->crossCheckBlock(b, i);
+            }
+        }
+
+
+        // try to find rows/cols/blocks with 1 empty space
         for(int i = 0; i < 9; i++)
         {
             /*
@@ -181,5 +204,93 @@ void SudokuSolver::solveDriver()
                       << "Blo-" << this->board.getBlockEmpty(i) << "\n";
             */
         }
+
+        //exit if board is full
+        if(this->board.isFull())
+            break;
+
+        
+        //std::cerr << "\n" << this->board << "\n";
+
     }
+
+    if(!(this->board.isFull()))
+        std::cout << this->board
+                  << "\nUnfortunately we could not solve the board fully\n";
+    else
+        std::cout << this->board
+                  << "\nBoard was solved successfully\n";
+
+}
+
+//----------------------------------------------------------------------------
+void SudokuSolver::crossCheckBlock(int b, int toSearch)
+{
+    //exit function if the block already has the number
+    /*std::cerr << "Searching for " << toSearch << " in block " << b << ": "
+              << this->board.searchFor(b, toSearch, 'b') << "\n";
+    */
+    if(this->board.searchFor(b, toSearch, 'b'))
+        return;
+
+    std::vector<bool> availSpace(9, false);
+    std::vector<int> block = this->board.getBlock(b);
+
+    //find all empty block spaces
+    for(int i = 0; i < 9; i++)
+    {
+        if(block[i] == -1)
+            availSpace[i] = true;
+    }
+
+
+    //eliminate empty spaces by checking rows and columns
+    int rowStart = (b / 3) * 3;
+    int colStart = (b % 3) * 3;
+
+    for(int i = rowStart; i < rowStart + 3; i++)
+    {
+        //check if that row of the block can be eliminated
+        if(this->board.searchFor(i, toSearch, 'r'))
+        {
+            int toElim = i - rowStart;     // tracks row to be eliminated
+            availSpace[(toElim * 3)] = false;
+            availSpace[(toElim * 3) + 1] = false;
+            availSpace[(toElim * 3) + 2] = false;
+        }
+    }
+
+    for(int i = colStart; i < colStart + 3; i++)
+    {
+        //check if col of the block can be eliminated
+        if(this->board.searchFor(i, toSearch, 'c'))
+        {
+            int toElim = i - colStart;
+            availSpace[(toElim % 3)] = false;
+            availSpace[(toElim % 3) + 3] = false;
+            availSpace[(toElim % 3) + 6] = false;
+        }
+    }
+
+    //check and see if there is one available space left
+    bool found = false;
+    int avail = -1;
+    for(int i = 0; i < 9; i++)
+    {
+        if(availSpace[i])
+        {
+            //leave method if there is more than one available space
+            if(found)
+                return;
+            
+            found = true;
+            avail = i;
+        }
+    }
+
+
+    //set the number
+    int row = (b / 3) * 3 + (avail / 3);
+    int col = (b % 3) * 3 + (avail % 3);
+    this->board.setCell(row, col, toSearch);
 }

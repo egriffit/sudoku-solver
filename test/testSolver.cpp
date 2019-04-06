@@ -88,11 +88,36 @@ TEST_CASE("Solve a row/column/block with 1 empty space", "[solving]")
     REQUIRE( C.board.getBlock(8) == solvedTest );
 }
 
+TEST_CASE("Cross checker algorithm is called", "[solving]")
+{
+    SudokuSolver A;
+
+    
+    //test that the algorithm writes if theres only one possible space
+    A.board.setCell(3, 1, 3);
+    A.board.setCell(7, 2, 3);
+    A.board.setCell(1, 5, 3);
+    A.board.setCell(2, 8, 3);
+
+    A.crossCheckBlock(0, 3);
+
+    REQUIRE( A.board.getCell(0, 0) == 3 );
+
+
+    //test that algorithm does not write if there are two empty spaces
+    A.board.setCell(0, 0, -1);
+    A.board.setCell(2, 8, -1);
+
+    SudokuSolver pre(A);
+    A.crossCheckBlock(0, 3);
+
+    REQUIRE( A == pre );
+}
 
 TEST_CASE("Driver for the solver is called", "[solving]")
 {
     std::vector<int> testBoard = {4, 2, 3, 6, 9, 7, 8, 1, 5,
-                                  6, 9, 1, 5, 3, 8, 5, 7, 2,
+                                  6, 9, 1, 5, 3, 8, 4, 7, 2,
                                   5, 8, 7, 4, 2, 1, 6, 3, 9,
                                   3, 1, 9, 8, 7, 5, 2, 6, 4,
                                   2, 5, 6, 1, 4, 9, 3, 8, 7,
@@ -116,5 +141,39 @@ TEST_CASE("Driver for the solver is called", "[solving]")
     A.solveDriver();
     
     REQUIRE( A.board == solved );
+
+
+    //more robust test case
+    std::vector<int> boardA =
+                {-1,  4, -1, -1,  9, -1, -1,  3, -1,
+                  7,  3, -1,  1,  4, -1, -1,  9, -1,
+                 -1, -1,  8,  2, -1,  5, -1, -1,  1,
+                  3, -1,  7, -1, -1, -1, -1, -1, -1,
+                 -1,  5,  9,  4,  8,  3,  7,  2, -1,
+                 -1, -1, -1, -1, -1, -1,  9, -1,  3,
+                  5, -1, -1,  8, -1,  9,  3, -1, -1,
+                 -1,  2, -1, -1,  7,  1, -1,  6,  5,
+                 -1,  7, -1, -1,  5, -1, -1,  1, -1};
+    
+    std::vector<int> boardASolved =
+                {2, 4, 1, 7, 9, 6, 5, 3, 8,
+                 7, 3, 5, 1, 4, 8, 6, 9, 2,
+                 6, 9, 8, 2, 3, 5, 4, 7, 1,
+                 3, 8, 7, 9, 6, 2, 1, 5, 4,
+                 1, 5, 9, 4, 8, 3, 7, 2, 6,
+                 4, 6, 2, 5, 1, 7, 9, 8, 3,
+                 5, 1, 6, 8, 2, 9, 3, 4, 7,
+                 9, 2, 4, 3, 7, 1, 8, 6, 5,
+                 8, 7, 3, 6, 5, 4, 2, 1, 9};
+
+    Board testA(boardA);
+    Board solvedA(boardASolved);
+    SudokuSolver B(testA);
+    SudokuSolver C(solvedA);
+
+    B.solveDriver();
+
+    REQUIRE( B == C );
+
 }
 

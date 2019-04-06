@@ -165,3 +165,27 @@ TEST_CASE("Assignment operator is used", "[assignment]")
 
 }
 
+TEST_CASE("Searches for numbers is called", "[search]")
+{
+    std::vector<int> testBoard(81, -1);
+    testBoard[6] = 3;
+    testBoard[44] = 2;
+    Board test(testBoard);
+    
+
+    //search a row
+    REQUIRE( test.searchFor(0, 3, 'r') == true );
+    REQUIRE( test.searchFor(0, 2, 'r') == false );
+    REQUIRE( test.searchFor(4, 2, 'r') == true );
+
+    //search columns
+    REQUIRE( test.searchFor(6, 3, 'c') == true );
+    REQUIRE( test.searchFor(3, 6, 'c') == false );
+    REQUIRE( test.searchFor(8, 2, 'c') == true );
+
+    
+    //search blocks
+    REQUIRE( test.searchFor(2, 3, 'b') == true );
+    REQUIRE( test.searchFor(3, 5, 'b') == false );
+    REQUIRE( test.searchFor(5, 2, 'b') == true );
+}
