@@ -277,4 +277,19 @@ std::ostream& operator<<(std::ostream& outs, const Board& prt)
     return outs;
 }
 
+/** \relates Board
+ * Overloaded stream extraction operator
+ *
+ * @param ins input stream
+ * @param obj object to read in
+ *
+ * @return input stream
+ */
+inline
+std::istream& operator>>(std::istream& ins, Board& obj)
+{
+    obj.read(ins);
+
+    return ins;
+}
 #endif
