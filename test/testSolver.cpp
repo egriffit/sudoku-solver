@@ -88,8 +88,9 @@ TEST_CASE("Solve a row/column/block with 1 empty space", "[solving]")
     REQUIRE( C.board.getBlock(8) == solvedTest );
 }
 
-TEST_CASE("Cross checker algorithm is called", "[solving]")
+TEST_CASE("Cross checker algorithms are called", "[solving]")
 {
+    // test cross check block
     SudokuSolver A;
 
     
@@ -112,8 +113,26 @@ TEST_CASE("Cross checker algorithm is called", "[solving]")
     A.crossCheckBlock(0, 3);
 
     REQUIRE( A == pre );
-}
 
+    
+    
+    
+    // test cross check row
+    SudokuSolver B;
+
+
+    // test that the algorithm writes if there is only one space
+    B.board.setCell(0, 1, 3);
+    B.board.setCell(1, 7, 3);
+    B.board.setCell(5, 5, 3);
+    B.board.setCell(8, 3, 3);
+    
+
+    B.crossCheckRow(2, 3);
+
+    REQUIRE( B.board.getCell(2, 4) == 3 );
+
+}
 TEST_CASE("Driver for the solver is called", "[solving]")
 {
     std::vector<int> testBoard = {4, 2, 3, 6, 9, 7, 8, 1, 5,

@@ -166,6 +166,20 @@ bool SudokuSolver::solveDriver()
             }
         }
 
+        
+
+        // cross check all missing numbers in rows
+        for(int r = 0; r < 9; r++)
+        {
+            for(int i = 1; i < 10; i++)
+            {
+                if(!(this->board.searchFor(r, i, 'r')))
+                    this->crossCheckRow(r, i);
+            }
+        }
+
+
+
 
         // try to find rows/cols/blocks with 1 empty space
         for(int i = 0; i < 9; i++)
@@ -293,6 +307,88 @@ void SudokuSolver::crossCheckBlock(int b, int toSearch)
     this->board.setCell(row, col, toSearch);
 }
 
+//----------------------------------------------------------------------------
+void SudokuSolver::crossCheckRow(int r, int toSearch)
+{
+    //exit function if the number already exists
+    if(this->board.searchFor(r, toSearch, 'r'))
+        return;
+
+    std::vector<bool> availSpace(9, false);
+    std::vector<int> row = this->board.getRow(r);
+
+    //if the cell is empty, add it to availability
+    for(int i = 0; i < 9; i++)
+    {
+        if(row[i] == -1)
+            availSpace[i] = true;
+    }
+
+       
+
+    // eliminate free space based on the blocks
+    int blockStart = (r / 3) * 3;       // finds the starting of the 3 blocks
+    
+    //std::cerr << blockStart << "\n";
+
+    for(int i = blockStart; i < blockStart + 3; i++)
+    {
+        if(this->board.searchFor(i, toSearch, 'b'))
+        {
+            int blockNum = i - blockStart;      // block num 1, 2, or 3
+
+            availSpace[(3 * blockNum)] = false;     // if block is 0
+            availSpace[(3 * blockNum) + 1] = false; // these will be
+            availSpace[(3 * blockNum) + 2] = false; // 0, 1, 2
+        }
+    }
+
+
+    /*
+    for(bool cell: availSpace)
+        std::cerr << cell;
+    std::cerr << std::endl;
+    */
+
+
+    //eliminate free space based on columns
+    for(int i = 0; i < 9; i++)
+    {
+        if(this->board.searchFor(i, toSearch, 'c'))
+        {
+            availSpace[i] = false;
+        }
+    }
+
+    
+
+
+    // see if there is only one available space
+    bool found = false;
+    int avail = -1;
+
+    for(int i = 0; i < 9; i++)
+    {
+        if(availSpace[i])
+        {
+            // leave method if more than one available space
+            if(found)
+                return;
+            
+            found = true;
+            avail = i;
+        }
+    }
+
+    
+
+
+    // set the value in the correct cell
+    this->board.setCell(r, avail, toSearch);
+
+}
+
+//----------------------------------------------------------------------------
 void SudokuSolver::display(std::ostream& outs) const
 {
     outs << this->board;
