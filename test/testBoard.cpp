@@ -2,6 +2,7 @@
 #include "../src/Board.h"
 #include <cstdlib>
 #include <iostream>
+#include <fstream>
 
 TEST_CASE("SudokuBoard constructors are called", "[constructor]")
 {
@@ -188,4 +189,18 @@ TEST_CASE("Searches for numbers is called", "[search]")
     REQUIRE( test.searchFor(2, 3, 'b') == true );
     REQUIRE( test.searchFor(3, 5, 'b') == false );
     REQUIRE( test.searchFor(5, 2, 'b') == true );
+}
+
+TEST_CASE("Read function is called", "[read]")
+{
+    std::vector<int> testBoard(81, 7);
+    Board A(testBoard);
+
+    std::ifstream inf;
+    inf.open("test/testRead.txt");
+
+    Board B;
+    inf >> B;
+
+    REQUIRE( B == A );
 }

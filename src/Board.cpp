@@ -284,7 +284,7 @@ void Board::display(std::ostream& outs) const
             //dividing line between grids
             if(i == 2 || i == 5)
             {
-                std::string divide(23, '=');
+                std::string divide(24, '=');
                 outs << divide << "\n";
             }
                 
@@ -296,20 +296,24 @@ void Board::display(std::ostream& outs) const
 void Board::read(std::istream& ins)
 {
     char dump;
-    std::string cell;
+    std::string dividers;
 
-    for(int i = 0; i < 9; i++)
-    {
-        ins >> dump;     
-                
+    for(int i = 0; i < 9; i++)    
+    {    
+        //remove dividers
+        if(i == 3 || i == 6)
+            ins >> dividers;
+
+
         for(int j = 0; j < 9; j++)
         {
-            //get contents of cell and check if empty
-            std::getline(ins, cell, '|');
+            //remove dividers
+            if(j == 3 || j == 6)
+                ins >> dump >> dump;
 
-            std::cerr << "Cell[" << i << "][" << j << "]: " << cell << std::endl;
+            ins >> this->board[(i * 9) + j];
 
-            //IMPLEMENT READ
+            //std::cerr << this->board[(i * 9) + j] << std::endl;
         }
     }
 }

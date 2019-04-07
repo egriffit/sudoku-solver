@@ -140,7 +140,7 @@ bool SudokuSolver::operator<(const SudokuSolver& rhs) const
 }
 
 //----------------------------------------------------------------------------
-void SudokuSolver::solveDriver()
+bool SudokuSolver::solveDriver()
 {
     Board oldBoard;
 
@@ -215,11 +215,9 @@ void SudokuSolver::solveDriver()
     }
 
     if(!(this->board.isFull()))
-        std::cout << this->board
-                  << "\nUnfortunately we could not solve the board fully\n";
+        return false;
     else
-        std::cout << this->board
-                  << "\nBoard was solved successfully\n";
+        return true;
 
 }
 
@@ -293,4 +291,9 @@ void SudokuSolver::crossCheckBlock(int b, int toSearch)
     int row = (b / 3) * 3 + (avail / 3);
     int col = (b % 3) * 3 + (avail % 3);
     this->board.setCell(row, col, toSearch);
+}
+
+void SudokuSolver::display(std::ostream& outs) const
+{
+    outs << this->board;
 }

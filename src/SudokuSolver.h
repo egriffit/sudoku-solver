@@ -75,8 +75,10 @@ class SudokuSolver
 
         /**
          * Driver for all solving processes
+         *
+         * @return true if the board is solved successfully
          */
-        void solveDriver();
+        bool solveDriver();
 
         /**
          * Overloaded Logical Equivalence Operator
@@ -96,8 +98,45 @@ class SudokuSolver
          */
         bool operator<(const SudokuSolver& rhs) const;
 
+        /**
+         * Display function
+         *
+         * @param outs output stream
+         */
+        void display(std::ostream& outs) const;
 
 
 };
 
+/** \relates SudokuSolver
+ * Overloaded Stream Insertion Operator
+ *
+ * @param outs output stream
+ * @param prt object to be printed
+ *
+ * @return output stream
+ */
+inline
+std::ostream& operator<<(std::ostream& outs, const SudokuSolver& prt)
+{
+    prt.display(outs);
+
+    return outs;
+}
+
+/** \relates SudokuSolver
+ * Overloaed Stream Extraction Operator
+ *
+ * @param ins input stream
+ * @param obj object to be read
+ *
+ * @return input stream
+ */
+inline
+std::istream& operator>>(std::istream& ins, SudokuSolver& obj)
+{
+    ins >> obj.board;
+
+    return ins;
+}
 #endif
