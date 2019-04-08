@@ -1,0 +1,290 @@
+\hypertarget{classSudokuSolver}{}\doxysection{Sudoku\+Solver Class Reference}
+\label{classSudokuSolver}\index{SudokuSolver@{SudokuSolver}}
+
+
+{\ttfamily \#include $<$Sudoku\+Solver.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSudokuSolver_a4bf48e09a67caff942c166ac70e42fc9}{Sudoku\+Solver}} ()
+\item 
+\mbox{\hyperlink{classSudokuSolver_ac96ea262bd7bfc4aec685174d5acc748}{Sudoku\+Solver}} (const \mbox{\hyperlink{classBoard}{Board}} \&b)
+\item 
+\mbox{\hyperlink{classSudokuSolver_a90f7b801455a93eae9d601eb76dab2d7}{Sudoku\+Solver}} (const \mbox{\hyperlink{classSudokuSolver}{Sudoku\+Solver}} \&src)
+\item 
+\mbox{\hyperlink{classSudokuSolver_a156d59e1e6445542fa97743240520670}{$\sim$\+Sudoku\+Solver}} ()
+\item 
+std\+::vector$<$ bool $>$ \mbox{\hyperlink{classSudokuSolver_a18a71cda8cdb13daad05b60df2aaa4e9}{get\+Checker}} () const
+\item 
+void \mbox{\hyperlink{classSudokuSolver_a27c3f23807b2fb87f3cb1af5ec304ca2}{set\+Checker}} (const std\+::vector$<$ bool $>$ \&c)
+\item 
+void \mbox{\hyperlink{classSudokuSolver_a823844a04229b5d76d3a7acfa075973d}{reset\+Checker}} ()
+\item 
+void \mbox{\hyperlink{classSudokuSolver_ab61378ce61a92444f6ca80654cc99aae}{solve8\+Full}} (int n, char type)
+\item 
+void \mbox{\hyperlink{classSudokuSolver_a768abb5a354e4d6b6573a5b98f10630a}{cross\+Check\+Block}} (int b, int to\+Search)
+\item 
+void \mbox{\hyperlink{classSudokuSolver_a60a71ba960a9290095d6ad73128ec374}{cross\+Check\+Row}} (int r, int to\+Search)
+\item 
+void \mbox{\hyperlink{classSudokuSolver_aeda95696734dd92901d180357108fff4}{cross\+Check\+Col}} (int c, int to\+Search)
+\item 
+bool \mbox{\hyperlink{classSudokuSolver_afa9c3b803a409509357bf7054dc760f6}{solve\+Driver}} ()
+\item 
+bool \mbox{\hyperlink{classSudokuSolver_a202e4896d207f764c899e310b9a86e09}{operator==}} (const \mbox{\hyperlink{classSudokuSolver}{Sudoku\+Solver}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{classSudokuSolver_a314ca997c6029877e2483ed043948176}{operator$<$}} (const \mbox{\hyperlink{classSudokuSolver}{Sudoku\+Solver}} \&rhs) const
+\item 
+void \mbox{\hyperlink{classSudokuSolver_ab58cfb2c3c49bbc8176d54bcce86fe86}{display}} (std\+::ostream \&outs) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSudokuSolver_a00cf51fc9ec3476558030c2917ecf4a0}\label{classSudokuSolver_a00cf51fc9ec3476558030c2917ecf4a0}} 
+\mbox{\hyperlink{classBoard}{Board}} \mbox{\hyperlink{classSudokuSolver_a00cf51fc9ec3476558030c2917ecf4a0}{board}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classBoard}{Board}} that will be solved. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Related Functions}
+(Note that these are not member functions.) \begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classSudokuSolver_ae91f4af22791febfd8f10864af46b3f3}{operator$<$$<$}} (std\+::ostream \&outs, const \mbox{\hyperlink{classSudokuSolver}{Sudoku\+Solver}} \&prt)
+\item 
+std\+::istream \& \mbox{\hyperlink{classSudokuSolver_a4b961a74155c0a4fbae67f1b8a1a93a2}{operator$>$$>$}} (std\+::istream \&ins, \mbox{\hyperlink{classSudokuSolver}{Sudoku\+Solver}} \&obj)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class contains all methods focused on solving the sudoku board 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSudokuSolver_a4bf48e09a67caff942c166ac70e42fc9}\label{classSudokuSolver_a4bf48e09a67caff942c166ac70e42fc9}} 
+\index{SudokuSolver@{SudokuSolver}!SudokuSolver@{SudokuSolver}}
+\index{SudokuSolver@{SudokuSolver}!SudokuSolver@{SudokuSolver}}
+\doxysubsubsection{\texorpdfstring{SudokuSolver()}{SudokuSolver()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Sudoku\+Solver\+::\+Sudoku\+Solver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default Constructor \mbox{\Hypertarget{classSudokuSolver_ac96ea262bd7bfc4aec685174d5acc748}\label{classSudokuSolver_ac96ea262bd7bfc4aec685174d5acc748}} 
+\index{SudokuSolver@{SudokuSolver}!SudokuSolver@{SudokuSolver}}
+\index{SudokuSolver@{SudokuSolver}!SudokuSolver@{SudokuSolver}}
+\doxysubsubsection{\texorpdfstring{SudokuSolver()}{SudokuSolver()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Sudoku\+Solver\+::\+Sudoku\+Solver (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBoard}{Board}} \&}]{b }\end{DoxyParamCaption})}
+
+Constructor if board is already known
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & board to be initialized \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSudokuSolver_a90f7b801455a93eae9d601eb76dab2d7}\label{classSudokuSolver_a90f7b801455a93eae9d601eb76dab2d7}} 
+\index{SudokuSolver@{SudokuSolver}!SudokuSolver@{SudokuSolver}}
+\index{SudokuSolver@{SudokuSolver}!SudokuSolver@{SudokuSolver}}
+\doxysubsubsection{\texorpdfstring{SudokuSolver()}{SudokuSolver()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Sudoku\+Solver\+::\+Sudoku\+Solver (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classSudokuSolver}{Sudoku\+Solver}} \&}]{src }\end{DoxyParamCaption})}
+
+Copy Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & \mbox{\hyperlink{classSudokuSolver}{Sudoku\+Solver}} object to be copied \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSudokuSolver_a156d59e1e6445542fa97743240520670}\label{classSudokuSolver_a156d59e1e6445542fa97743240520670}} 
+\index{SudokuSolver@{SudokuSolver}!````~SudokuSolver@{$\sim$SudokuSolver}}
+\index{````~SudokuSolver@{$\sim$SudokuSolver}!SudokuSolver@{SudokuSolver}}
+\doxysubsubsection{\texorpdfstring{$\sim$SudokuSolver()}{~SudokuSolver()}}
+{\footnotesize\ttfamily Sudoku\+Solver\+::$\sim$\+Sudoku\+Solver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSudokuSolver_a768abb5a354e4d6b6573a5b98f10630a}\label{classSudokuSolver_a768abb5a354e4d6b6573a5b98f10630a}} 
+\index{SudokuSolver@{SudokuSolver}!crossCheckBlock@{crossCheckBlock}}
+\index{crossCheckBlock@{crossCheckBlock}!SudokuSolver@{SudokuSolver}}
+\doxysubsubsection{\texorpdfstring{crossCheckBlock()}{crossCheckBlock()}}
+{\footnotesize\ttfamily void Sudoku\+Solver\+::cross\+Check\+Block (\begin{DoxyParamCaption}\item[{int}]{b,  }\item[{int}]{to\+Search }\end{DoxyParamCaption})}
+
+Search through the rows and columns to attempt to fill in a number
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & block number to analyze \\
+\hline
+{\em to\+Search} & number to attempt to place \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSudokuSolver_aeda95696734dd92901d180357108fff4}\label{classSudokuSolver_aeda95696734dd92901d180357108fff4}} 
+\index{SudokuSolver@{SudokuSolver}!crossCheckCol@{crossCheckCol}}
+\index{crossCheckCol@{crossCheckCol}!SudokuSolver@{SudokuSolver}}
+\doxysubsubsection{\texorpdfstring{crossCheckCol()}{crossCheckCol()}}
+{\footnotesize\ttfamily void Sudoku\+Solver\+::cross\+Check\+Col (\begin{DoxyParamCaption}\item[{int}]{c,  }\item[{int}]{to\+Search }\end{DoxyParamCaption})}
+
+Search through the blocks and rows to attempt to fill in a number in a column
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & column number to analyze \\
+\hline
+{\em to\+Search} & number to attempt to place \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSudokuSolver_a60a71ba960a9290095d6ad73128ec374}\label{classSudokuSolver_a60a71ba960a9290095d6ad73128ec374}} 
+\index{SudokuSolver@{SudokuSolver}!crossCheckRow@{crossCheckRow}}
+\index{crossCheckRow@{crossCheckRow}!SudokuSolver@{SudokuSolver}}
+\doxysubsubsection{\texorpdfstring{crossCheckRow()}{crossCheckRow()}}
+{\footnotesize\ttfamily void Sudoku\+Solver\+::cross\+Check\+Row (\begin{DoxyParamCaption}\item[{int}]{r,  }\item[{int}]{to\+Search }\end{DoxyParamCaption})}
+
+Search through the blocks and columns to attempt to fill in a number in a row
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & row number to analyze \\
+\hline
+{\em to\+Search} & number to attempt to place \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSudokuSolver_ab58cfb2c3c49bbc8176d54bcce86fe86}\label{classSudokuSolver_ab58cfb2c3c49bbc8176d54bcce86fe86}} 
+\index{SudokuSolver@{SudokuSolver}!display@{display}}
+\index{display@{display}!SudokuSolver@{SudokuSolver}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily void Sudoku\+Solver\+::display (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{outs }\end{DoxyParamCaption}) const}
+
+Display function
+
+
+\begin{DoxyParams}{Parameters}
+{\em outs} & output stream \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSudokuSolver_a18a71cda8cdb13daad05b60df2aaa4e9}\label{classSudokuSolver_a18a71cda8cdb13daad05b60df2aaa4e9}} 
+\index{SudokuSolver@{SudokuSolver}!getChecker@{getChecker}}
+\index{getChecker@{getChecker}!SudokuSolver@{SudokuSolver}}
+\doxysubsubsection{\texorpdfstring{getChecker()}{getChecker()}}
+{\footnotesize\ttfamily std\+::vector$<$ bool $>$ Sudoku\+Solver\+::get\+Checker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the checker array
+
+\begin{DoxyReturn}{Returns}
+array of bools 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSudokuSolver_a314ca997c6029877e2483ed043948176}\label{classSudokuSolver_a314ca997c6029877e2483ed043948176}} 
+\index{SudokuSolver@{SudokuSolver}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!SudokuSolver@{SudokuSolver}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Sudoku\+Solver\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classSudokuSolver}{Sudoku\+Solver}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+Overloaded Less Than Operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & Right Hand Side object of the comparison\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the lhs board has less filled in 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSudokuSolver_a202e4896d207f764c899e310b9a86e09}\label{classSudokuSolver_a202e4896d207f764c899e310b9a86e09}} 
+\index{SudokuSolver@{SudokuSolver}!operator==@{operator==}}
+\index{operator==@{operator==}!SudokuSolver@{SudokuSolver}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Sudoku\+Solver\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classSudokuSolver}{Sudoku\+Solver}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+Overloaded Logical Equivalence Operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & Right Hand Side object of the comparison\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the boards are identical 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSudokuSolver_a823844a04229b5d76d3a7acfa075973d}\label{classSudokuSolver_a823844a04229b5d76d3a7acfa075973d}} 
+\index{SudokuSolver@{SudokuSolver}!resetChecker@{resetChecker}}
+\index{resetChecker@{resetChecker}!SudokuSolver@{SudokuSolver}}
+\doxysubsubsection{\texorpdfstring{resetChecker()}{resetChecker()}}
+{\footnotesize\ttfamily void Sudoku\+Solver\+::reset\+Checker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reset the checker array to all false \mbox{\Hypertarget{classSudokuSolver_a27c3f23807b2fb87f3cb1af5ec304ca2}\label{classSudokuSolver_a27c3f23807b2fb87f3cb1af5ec304ca2}} 
+\index{SudokuSolver@{SudokuSolver}!setChecker@{setChecker}}
+\index{setChecker@{setChecker}!SudokuSolver@{SudokuSolver}}
+\doxysubsubsection{\texorpdfstring{setChecker()}{setChecker()}}
+{\footnotesize\ttfamily void Sudoku\+Solver\+::set\+Checker (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ bool $>$ \&}]{c }\end{DoxyParamCaption})}
+
+Set the checker array
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & array of bools to set the checker \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSudokuSolver_ab61378ce61a92444f6ca80654cc99aae}\label{classSudokuSolver_ab61378ce61a92444f6ca80654cc99aae}} 
+\index{SudokuSolver@{SudokuSolver}!solve8Full@{solve8Full}}
+\index{solve8Full@{solve8Full}!SudokuSolver@{SudokuSolver}}
+\doxysubsubsection{\texorpdfstring{solve8Full()}{solve8Full()}}
+{\footnotesize\ttfamily void Sudoku\+Solver\+::solve8\+Full (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{char}]{type }\end{DoxyParamCaption})}
+
+Fill a row/column/block needing one more number
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & row/column/block number to fill \\
+\hline
+{\em type} & determines whether this is a row(\textquotesingle{}r\textquotesingle{}), column(\textquotesingle{}c\textquotesingle{}), or block(\textquotesingle{}b\textquotesingle{}) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSudokuSolver_afa9c3b803a409509357bf7054dc760f6}\label{classSudokuSolver_afa9c3b803a409509357bf7054dc760f6}} 
+\index{SudokuSolver@{SudokuSolver}!solveDriver@{solveDriver}}
+\index{solveDriver@{solveDriver}!SudokuSolver@{SudokuSolver}}
+\doxysubsubsection{\texorpdfstring{solveDriver()}{solveDriver()}}
+{\footnotesize\ttfamily bool Sudoku\+Solver\+::solve\+Driver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Driver for all solving processes
+
+\begin{DoxyReturn}{Returns}
+true if the board is solved successfully 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classSudokuSolver_ae91f4af22791febfd8f10864af46b3f3}\label{classSudokuSolver_ae91f4af22791febfd8f10864af46b3f3}} 
+\index{SudokuSolver@{SudokuSolver}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!SudokuSolver@{SudokuSolver}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{outs,  }\item[{const \mbox{\hyperlink{classSudokuSolver}{Sudoku\+Solver}} \&}]{prt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+Overloaded Stream Insertion Operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em outs} & output stream \\
+\hline
+{\em prt} & object to be printed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+output stream 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSudokuSolver_a4b961a74155c0a4fbae67f1b8a1a93a2}\label{classSudokuSolver_a4b961a74155c0a4fbae67f1b8a1a93a2}} 
+\index{SudokuSolver@{SudokuSolver}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!SudokuSolver@{SudokuSolver}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{ins,  }\item[{\mbox{\hyperlink{classSudokuSolver}{Sudoku\+Solver}} \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+Overloaed Stream Extraction Operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em ins} & input stream \\
+\hline
+{\em obj} & object to be read\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+input stream 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Sudoku\+Solver.\+h\item 
+src/Sudoku\+Solver.\+cpp\end{DoxyCompactItemize}
