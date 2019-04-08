@@ -90,7 +90,7 @@ TEST_CASE("Solve a row/column/block with 1 empty space", "[solving]")
 
 TEST_CASE("Cross checker algorithms are called", "[solving]")
 {
-    // test cross check block
+    // Block test
     SudokuSolver A;
 
     
@@ -117,20 +117,50 @@ TEST_CASE("Cross checker algorithms are called", "[solving]")
     
     
     
-    // test cross check row
+    // Row test
     SudokuSolver B;
 
 
-    // test that the algorithm writes if there is only one space
+    // test that the algorithm does not write if there are multiple empty spaces
     B.board.setCell(0, 1, 3);
     B.board.setCell(1, 7, 3);
     B.board.setCell(5, 5, 3);
+    pre = B;
+
+    B.crossCheckCol(2, 3);
+
+    REQUIRE( B == pre );
+
+    //test that the algirthm does write if there is one empty space
     B.board.setCell(8, 3, 3);
     
-
     B.crossCheckRow(2, 3);
 
     REQUIRE( B.board.getCell(2, 4) == 3 );
+
+
+
+    // Column test
+    SudokuSolver C;
+
+
+    //test that the algorithm won't write with multiple empty spaces
+    C.board.setCell(3, 1, 3);
+    C.board.setCell(6, 2, 3);
+    C.board.setCell(1, 3, 3);
+    pre = C;
+
+    C.crossCheckCol(0, 3);
+
+    REQUIRE( C == pre );
+
+
+    // test that the algorithm writes with one empty space
+    C.board.setCell(2, 6, 3);
+
+    C.crossCheckCol(0, 3);
+
+    REQUIRE( C.board.getCell(0, 0) == 3 );
 
 }
 TEST_CASE("Driver for the solver is called", "[solving]")
