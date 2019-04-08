@@ -80,6 +80,14 @@ class SudokuSolver
          * @param toSearch number to attempt to place
          */
         void crossCheckRow(int r, int toSearch);
+        
+        /**
+         * Search through the blocks and rows to attempt to fill in a number in a column
+         *
+         * @param c column number to analyze
+         * @param toSearch number to attempt to place
+         */
+        void crossCheckCol(int c, int toSearch);
 
         /**
          * Driver for all solving processes

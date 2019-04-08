@@ -180,6 +180,18 @@ bool SudokuSolver::solveDriver()
 
 
 
+        
+        // cross check all missing numbers in columns
+        for(int c = 0; c < 9; c++)
+        {
+            for(int i = 1; i < 10; i++)
+            {
+                if(!(this->board.searchFor(c, i, 'c')))
+                    this->crossCheckCol(c, i);
+            }
+        }
+
+
 
         // try to find rows/cols/blocks with 1 empty space
         for(int i = 0; i < 9; i++)
@@ -385,6 +397,76 @@ void SudokuSolver::crossCheckRow(int r, int toSearch)
 
     // set the value in the correct cell
     this->board.setCell(r, avail, toSearch);
+
+}
+
+//----------------------------------------------------------------------------
+void SudokuSolver::crossCheckCol(int c, int toSearch)
+{
+    // exit if the number already exists in the column
+    if(this->board.searchFor(c, toSearch, 'c'))
+        return;
+
+
+    std::vector<bool> availSpace(9, false);
+    std::vector<int> col = this->board.getCol(c);
+
+
+    //set empty spaces to available
+    for(int i = 0; i < 9; i++)
+    {
+        if(col[i] == -1)
+            availSpace[i] = true;
+    }
+
+
+    //search through the blocks to eliminate spaces
+    int blockStart = c / 3;
+    for(int i = blockStart; i <= blockStart + 6; i += 3)
+    {
+        //eliminate column spaces in that block
+        if(this->board.searchFor(i, toSearch, 'b'))
+        {
+            int blockNum = (i - blockStart) / 3;    //first, second, or third
+
+            availSpace[(blockNum * 3)] = false;
+            availSpace[(blockNum * 3) + 1] = false;
+            availSpace[(blockNum * 3) + 2] = false;
+        }
+    }
+
+
+
+    //search through the rows to eliminate spaces
+    for(int i = 0; i < 9; i++)
+    {
+        if(this->board.searchFor(i, toSearch, 'r'))
+        {
+            availSpace[i] = false;
+        }
+    }
+
+
+    //exit if there is more than one empty space
+    bool found = false;
+    int avail = -1;
+    for(int i = 0; i < 9; i++)
+    {
+        if(availSpace[i])
+        {
+            //exit if already one space found
+            if(found)
+                return;
+
+
+            found = true;
+            avail = i;
+        }
+    }
+
+
+    //set the value
+    this->board.setCell(avail, c, toSearch);
 
 }
 
