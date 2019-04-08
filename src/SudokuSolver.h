@@ -6,6 +6,9 @@
 
 #include "Board.h"
 
+/**
+ * This class contains all methods focused on solving the sudoku board
+ */
 class SudokuSolver
 {
     private:

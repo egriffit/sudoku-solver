@@ -2,7 +2,7 @@
 #define BOARD_H_INCLUDED
 
 
-/*
+/**
  * The Board class holds the sudoku board interfaced with by the solver.
  */
 class Board
@@ -20,7 +20,7 @@ class Board
         /**
          * Board Constructor if board is already known
          *
-         * @param b 2D array of the values of the board
+         * @param board container of the values of the board
          */
         Board(const std::vector<int>& board);
 

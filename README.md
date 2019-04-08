@@ -56,7 +56,7 @@ An example
 
 # Documentation
 
-Documentation is provided by [Doxygen](doxygen.nl). See the documentation file here: [documentation.html](doc/html/documentation.html).
+Documentation is provided by [Doxygen](doxygen.nl). See the documentation file here: [documentation](index.html).
 
 # Author
 
