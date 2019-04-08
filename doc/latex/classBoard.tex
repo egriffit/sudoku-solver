@@ -1,0 +1,564 @@
+\hypertarget{classBoard}{}\doxysection{Board Class Reference}
+\label{classBoard}\index{Board@{Board}}
+
+
+{\ttfamily \#include $<$Board.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBoard_a9ee491d4fea680cf69b033374a9fdfcb}{Board}} ()
+\item 
+\mbox{\hyperlink{classBoard_a68e1494587ac825a77c91df7c3d8f058}{Board}} (const std\+::vector$<$ int $>$ \&board)
+\item 
+\mbox{\hyperlink{classBoard_a0830880c4f04fa4500e23d67dfec525d}{Board}} (const \mbox{\hyperlink{classBoard}{Board}} \&src)
+\item 
+\mbox{\hyperlink{classBoard_af73f45730119a1fd8f6670f53f959e68}{$\sim$\+Board}} ()
+\item 
+int \mbox{\hyperlink{classBoard_a350edf489de5b95cd05813d3407ed291}{get\+Cell}} (int r, int c) const
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classBoard_ad49a300ceb98b3422e2110a559b98fdf}{get\+Row}} (int n) const
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classBoard_a602a815cd7e1db0c4ee0b6b4fa197e59}{get\+Col}} (int n) const
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classBoard_a20dab077c17f19ebd7504d99d8b06b32}{get\+Block}} (int n) const
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classBoard_ad5be47bf7147f81d13dc8c43bed56d14}{get\+Board}} () const
+\item 
+int \mbox{\hyperlink{classBoard_a833acce8e4caafb6bf6f9195fb60b927}{get\+Filled}} () const
+\item 
+int \mbox{\hyperlink{classBoard_a5957042fa93db2db0aa68921c29e1ffd}{get\+Row\+Filled}} (int r) const
+\item 
+int \mbox{\hyperlink{classBoard_a967885e96fbec3a39ce20f626844352b}{get\+Col\+Filled}} (int c) const
+\item 
+int \mbox{\hyperlink{classBoard_af2d5ce1344507df0e5e2bc1740427671}{get\+Block\+Filled}} (int b) const
+\item 
+int \mbox{\hyperlink{classBoard_a9b6ca739ca245819ade1ad116370957b}{get\+Row\+Empty}} (int r) const
+\item 
+int \mbox{\hyperlink{classBoard_a70ce6cf65b83acf5c53c50ac285ca2fa}{get\+Col\+Empty}} (int c) const
+\item 
+int \mbox{\hyperlink{classBoard_a254a180acc57af190cccfa4e87ec4598}{get\+Block\+Empty}} (int b) const
+\item 
+void \mbox{\hyperlink{classBoard_afd7dee6bf0ad7e9238b66209276d841e}{set\+Row}} (int n, const std\+::vector$<$ int $>$ \&row)
+\item 
+void \mbox{\hyperlink{classBoard_a420821ceb62b2d3bac9d25844e8f2cef}{set\+Col}} (int n, const std\+::vector$<$ int $>$ \&col)
+\item 
+void \mbox{\hyperlink{classBoard_a6396553c9c0bac3c46ebf27c4dfa4eca}{set\+Block}} (int n, const std\+::vector$<$ int $>$ \&b)
+\item 
+void \mbox{\hyperlink{classBoard_ae07bf8f3bb945399fac8c1ceb683077d}{set\+Board}} (const std\+::vector$<$ int $>$ \&new\+Board)
+\item 
+void \mbox{\hyperlink{classBoard_a141b335fd7123202bbc5dd4765cfdc4d}{set\+Cell}} (int r, int c, int val)
+\item 
+bool \mbox{\hyperlink{classBoard_aea604144c08c8442221b4a619d47db94}{is\+Full}} () const
+\item 
+bool \mbox{\hyperlink{classBoard_adf2b04e1ce9f68027ddb26df8fe35863}{is\+Row\+Full}} (int r) const
+\item 
+bool \mbox{\hyperlink{classBoard_aef54971e289f75428be5a745d2cd0dcd}{is\+Col\+Full}} (int c) const
+\item 
+bool \mbox{\hyperlink{classBoard_a19a65fda6a378b7e37e2241353d40372}{search\+For}} (int n, int to\+Search, char type) const
+\item 
+\mbox{\hyperlink{classBoard}{Board}} \mbox{\hyperlink{classBoard_a63026f4cad3ccec3149f00f559a24a6c}{operator=}} (const \mbox{\hyperlink{classBoard}{Board}} \&src)
+\item 
+bool \mbox{\hyperlink{classBoard_a9f8e2e76bb8b6b12c83bded95bacbf62}{operator$<$}} (const \mbox{\hyperlink{classBoard}{Board}} \&lhs) const
+\item 
+bool \mbox{\hyperlink{classBoard_aee1acd1b6b737718d03cdd617ad58bc7}{operator==}} (const \mbox{\hyperlink{classBoard}{Board}} \&lhs) const
+\item 
+void \mbox{\hyperlink{classBoard_a3968369c8c764a535e4adc273f642b07}{display}} (std\+::ostream \&outs) const
+\item 
+void \mbox{\hyperlink{classBoard_af649192c165516d5c5f04803a6a87527}{read}} (std\+::istream \&ins)
+\end{DoxyCompactItemize}
+\doxysubsection*{Related Functions}
+(Note that these are not member functions.) \begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classBoard_a91bbb807985b48b6a5957c0e869be563}{operator$<$$<$}} (std\+::ostream \&outs, const \mbox{\hyperlink{classBoard}{Board}} \&prt)
+\item 
+std\+::istream \& \mbox{\hyperlink{classBoard_a5da6d2d3350aca2233b22e55f9a8ab8e}{operator$>$$>$}} (std\+::istream \&ins, \mbox{\hyperlink{classBoard}{Board}} \&obj)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classBoard}{Board}} class holds the sudoku board interfaced with by the solver. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBoard_a9ee491d4fea680cf69b033374a9fdfcb}\label{classBoard_a9ee491d4fea680cf69b033374a9fdfcb}} 
+\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Board\+::\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default \mbox{\hyperlink{classBoard}{Board}} Constructor \mbox{\Hypertarget{classBoard_a68e1494587ac825a77c91df7c3d8f058}\label{classBoard_a68e1494587ac825a77c91df7c3d8f058}} 
+\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Board\+::\+Board (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{board }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classBoard}{Board}} Constructor if board is already known
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & container of the values of the board \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBoard_a0830880c4f04fa4500e23d67dfec525d}\label{classBoard_a0830880c4f04fa4500e23d67dfec525d}} 
+\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Board\+::\+Board (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBoard}{Board}} \&}]{src }\end{DoxyParamCaption})}
+
+Boardy Copy Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & \mbox{\hyperlink{classBoard}{Board}} to be copied from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBoard_af73f45730119a1fd8f6670f53f959e68}\label{classBoard_af73f45730119a1fd8f6670f53f959e68}} 
+\index{Board@{Board}!````~Board@{$\sim$Board}}
+\index{````~Board@{$\sim$Board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{$\sim$Board()}{~Board()}}
+{\footnotesize\ttfamily Board\+::$\sim$\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classBoard}{Board}} Destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBoard_a3968369c8c764a535e4adc273f642b07}\label{classBoard_a3968369c8c764a535e4adc273f642b07}} 
+\index{Board@{Board}!display@{display}}
+\index{display@{display}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily void Board\+::display (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{outs }\end{DoxyParamCaption}) const}
+
+Output the board to an output stream
+
+
+\begin{DoxyParams}{Parameters}
+{\em outs} & output stream \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBoard_a20dab077c17f19ebd7504d99d8b06b32}\label{classBoard_a20dab077c17f19ebd7504d99d8b06b32}} 
+\index{Board@{Board}!getBlock@{getBlock}}
+\index{getBlock@{getBlock}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getBlock()}{getBlock()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Board\+::get\+Block (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption}) const}
+
+Access a specific block (3x3) of the board
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & number of the desire block (descends horizontally)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+container of all values in the block 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_a254a180acc57af190cccfa4e87ec4598}\label{classBoard_a254a180acc57af190cccfa4e87ec4598}} 
+\index{Board@{Board}!getBlockEmpty@{getBlockEmpty}}
+\index{getBlockEmpty@{getBlockEmpty}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getBlockEmpty()}{getBlockEmpty()}}
+{\footnotesize\ttfamily int Board\+::get\+Block\+Empty (\begin{DoxyParamCaption}\item[{int}]{b }\end{DoxyParamCaption}) const}
+
+Determine how many spots are empty in a block
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & block number to be examined\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of empty spots in the column 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_af2d5ce1344507df0e5e2bc1740427671}\label{classBoard_af2d5ce1344507df0e5e2bc1740427671}} 
+\index{Board@{Board}!getBlockFilled@{getBlockFilled}}
+\index{getBlockFilled@{getBlockFilled}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getBlockFilled()}{getBlockFilled()}}
+{\footnotesize\ttfamily int Board\+::get\+Block\+Filled (\begin{DoxyParamCaption}\item[{int}]{b }\end{DoxyParamCaption}) const}
+
+Determine how many spots are filled in a block
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & block number to examin\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of filled spots in the block 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_ad5be47bf7147f81d13dc8c43bed56d14}\label{classBoard_ad5be47bf7147f81d13dc8c43bed56d14}} 
+\index{Board@{Board}!getBoard@{getBoard}}
+\index{getBoard@{getBoard}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getBoard()}{getBoard()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Board\+::get\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Access the entire board
+
+\begin{DoxyReturn}{Returns}
+2D array of the entire sudoku board 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_a350edf489de5b95cd05813d3407ed291}\label{classBoard_a350edf489de5b95cd05813d3407ed291}} 
+\index{Board@{Board}!getCell@{getCell}}
+\index{getCell@{getCell}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getCell()}{getCell()}}
+{\footnotesize\ttfamily int Board\+::get\+Cell (\begin{DoxyParamCaption}\item[{int}]{r,  }\item[{int}]{c }\end{DoxyParamCaption}) const}
+
+Access a certain value on the board
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & row of the target value \\
+\hline
+{\em c} & column of the target value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number located at row r and column c 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_a602a815cd7e1db0c4ee0b6b4fa197e59}\label{classBoard_a602a815cd7e1db0c4ee0b6b4fa197e59}} 
+\index{Board@{Board}!getCol@{getCol}}
+\index{getCol@{getCol}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getCol()}{getCol()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Board\+::get\+Col (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption}) const}
+
+Access a specific column of the board
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & number of the desired column\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array containing all values in the column 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_a70ce6cf65b83acf5c53c50ac285ca2fa}\label{classBoard_a70ce6cf65b83acf5c53c50ac285ca2fa}} 
+\index{Board@{Board}!getColEmpty@{getColEmpty}}
+\index{getColEmpty@{getColEmpty}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getColEmpty()}{getColEmpty()}}
+{\footnotesize\ttfamily int Board\+::get\+Col\+Empty (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption}) const}
+
+Determine how many spots are empty in a column
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & column number to be examined\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of empty spots in the column 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_a967885e96fbec3a39ce20f626844352b}\label{classBoard_a967885e96fbec3a39ce20f626844352b}} 
+\index{Board@{Board}!getColFilled@{getColFilled}}
+\index{getColFilled@{getColFilled}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getColFilled()}{getColFilled()}}
+{\footnotesize\ttfamily int Board\+::get\+Col\+Filled (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption}) const}
+
+Determine how many spots are filled in a column
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & column number to examine\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of filled spots in the column 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_a833acce8e4caafb6bf6f9195fb60b927}\label{classBoard_a833acce8e4caafb6bf6f9195fb60b927}} 
+\index{Board@{Board}!getFilled@{getFilled}}
+\index{getFilled@{getFilled}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getFilled()}{getFilled()}}
+{\footnotesize\ttfamily int Board\+::get\+Filled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Determine how many filled spots are in the board
+
+\begin{DoxyReturn}{Returns}
+the number of values filled into the board 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_ad49a300ceb98b3422e2110a559b98fdf}\label{classBoard_ad49a300ceb98b3422e2110a559b98fdf}} 
+\index{Board@{Board}!getRow@{getRow}}
+\index{getRow@{getRow}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getRow()}{getRow()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Board\+::get\+Row (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption}) const}
+
+Access a specific row of the board
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & number of the desired row\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array containing all values in the row 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_a9b6ca739ca245819ade1ad116370957b}\label{classBoard_a9b6ca739ca245819ade1ad116370957b}} 
+\index{Board@{Board}!getRowEmpty@{getRowEmpty}}
+\index{getRowEmpty@{getRowEmpty}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getRowEmpty()}{getRowEmpty()}}
+{\footnotesize\ttfamily int Board\+::get\+Row\+Empty (\begin{DoxyParamCaption}\item[{int}]{r }\end{DoxyParamCaption}) const}
+
+Determine how many spots are empty in a row
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & row number to examine\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of empty spots in the row 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_a5957042fa93db2db0aa68921c29e1ffd}\label{classBoard_a5957042fa93db2db0aa68921c29e1ffd}} 
+\index{Board@{Board}!getRowFilled@{getRowFilled}}
+\index{getRowFilled@{getRowFilled}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getRowFilled()}{getRowFilled()}}
+{\footnotesize\ttfamily int Board\+::get\+Row\+Filled (\begin{DoxyParamCaption}\item[{int}]{r }\end{DoxyParamCaption}) const}
+
+Determine how many spots are filled in a row
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & row number to examine\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of filled spots in the row 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_aef54971e289f75428be5a745d2cd0dcd}\label{classBoard_aef54971e289f75428be5a745d2cd0dcd}} 
+\index{Board@{Board}!isColFull@{isColFull}}
+\index{isColFull@{isColFull}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{isColFull()}{isColFull()}}
+{\footnotesize\ttfamily bool Board\+::is\+Col\+Full (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption}) const}
+
+Determine whehter a specific column is full or not
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & column number to be examined\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all 9 spots are filled 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_aea604144c08c8442221b4a619d47db94}\label{classBoard_aea604144c08c8442221b4a619d47db94}} 
+\index{Board@{Board}!isFull@{isFull}}
+\index{isFull@{isFull}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{isFull()}{isFull()}}
+{\footnotesize\ttfamily bool Board\+::is\+Full (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Determine whether the board is full or not
+
+\begin{DoxyReturn}{Returns}
+true if all 81 spots are filled on the board 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_adf2b04e1ce9f68027ddb26df8fe35863}\label{classBoard_adf2b04e1ce9f68027ddb26df8fe35863}} 
+\index{Board@{Board}!isRowFull@{isRowFull}}
+\index{isRowFull@{isRowFull}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{isRowFull()}{isRowFull()}}
+{\footnotesize\ttfamily bool Board\+::is\+Row\+Full (\begin{DoxyParamCaption}\item[{int}]{r }\end{DoxyParamCaption}) const}
+
+Determine whether a specific row is full or not
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & row number to be examined\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all 9 spots are filled 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_a9f8e2e76bb8b6b12c83bded95bacbf62}\label{classBoard_a9f8e2e76bb8b6b12c83bded95bacbf62}} 
+\index{Board@{Board}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Board\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBoard}{Board}} \&}]{lhs }\end{DoxyParamCaption}) const}
+
+Overloaded comparision operator A board is less than another if it has less spaces filled in
+
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{classBoard}{Board}} on the left hand side of the less than\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if lhs is less than this 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_a63026f4cad3ccec3149f00f559a24a6c}\label{classBoard_a63026f4cad3ccec3149f00f559a24a6c}} 
+\index{Board@{Board}!operator=@{operator=}}
+\index{operator=@{operator=}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBoard}{Board}} Board\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBoard}{Board}} \&}]{src }\end{DoxyParamCaption})}
+
+Overloaded asignment operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & \mbox{\hyperlink{classBoard}{Board}} to be assigned to left hand side \mbox{\hyperlink{classBoard}{Board}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+newly assigned board 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_aee1acd1b6b737718d03cdd617ad58bc7}\label{classBoard_aee1acd1b6b737718d03cdd617ad58bc7}} 
+\index{Board@{Board}!operator==@{operator==}}
+\index{operator==@{operator==}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Board\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBoard}{Board}} \&}]{lhs }\end{DoxyParamCaption}) const}
+
+Overloaded logical equivalence operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \mbox{\hyperlink{classBoard}{Board}} object to be compared with this\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the boards are equivalent 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_af649192c165516d5c5f04803a6a87527}\label{classBoard_af649192c165516d5c5f04803a6a87527}} 
+\index{Board@{Board}!read@{read}}
+\index{read@{read}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily void Board\+::read (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{ins }\end{DoxyParamCaption})}
+
+Read in a board from an input stream
+
+
+\begin{DoxyParams}{Parameters}
+{\em ins} & input stream \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBoard_a19a65fda6a378b7e37e2241353d40372}\label{classBoard_a19a65fda6a378b7e37e2241353d40372}} 
+\index{Board@{Board}!searchFor@{searchFor}}
+\index{searchFor@{searchFor}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{searchFor()}{searchFor()}}
+{\footnotesize\ttfamily bool Board\+::search\+For (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{to\+Search,  }\item[{char}]{type }\end{DoxyParamCaption}) const}
+
+Search a row/block/col for a certain number
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & row/block/col number \\
+\hline
+{\em to\+Search} & number to search for \\
+\hline
+{\em type} & character determining row(\textquotesingle{}r\textquotesingle{}), column(\textquotesingle{}c\textquotesingle{}), or block(\textquotesingle{}b\textquotesingle{})\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the row/col/block has the desired number 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_a6396553c9c0bac3c46ebf27c4dfa4eca}\label{classBoard_a6396553c9c0bac3c46ebf27c4dfa4eca}} 
+\index{Board@{Board}!setBlock@{setBlock}}
+\index{setBlock@{setBlock}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{setBlock()}{setBlock()}}
+{\footnotesize\ttfamily void Board\+::set\+Block (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{const std\+::vector$<$ int $>$ \&}]{b }\end{DoxyParamCaption})}
+
+Set the values of a certain column
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & number of the target block \\
+\hline
+{\em b} & container of values to replace the block \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBoard_ae07bf8f3bb945399fac8c1ceb683077d}\label{classBoard_ae07bf8f3bb945399fac8c1ceb683077d}} 
+\index{Board@{Board}!setBoard@{setBoard}}
+\index{setBoard@{setBoard}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{setBoard()}{setBoard()}}
+{\footnotesize\ttfamily void Board\+::set\+Board (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{new\+Board }\end{DoxyParamCaption})}
+
+Set the values of the entire sudoku board
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Board} & set of new values to be input into the board \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBoard_a141b335fd7123202bbc5dd4765cfdc4d}\label{classBoard_a141b335fd7123202bbc5dd4765cfdc4d}} 
+\index{Board@{Board}!setCell@{setCell}}
+\index{setCell@{setCell}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{setCell()}{setCell()}}
+{\footnotesize\ttfamily void Board\+::set\+Cell (\begin{DoxyParamCaption}\item[{int}]{r,  }\item[{int}]{c,  }\item[{int}]{val }\end{DoxyParamCaption})}
+
+Set the value of a single cell
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & row of the target cell \\
+\hline
+{\em c} & column of the target cell \\
+\hline
+{\em val} & value to be placed in the specific cell \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBoard_a420821ceb62b2d3bac9d25844e8f2cef}\label{classBoard_a420821ceb62b2d3bac9d25844e8f2cef}} 
+\index{Board@{Board}!setCol@{setCol}}
+\index{setCol@{setCol}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{setCol()}{setCol()}}
+{\footnotesize\ttfamily void Board\+::set\+Col (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{const std\+::vector$<$ int $>$ \&}]{col }\end{DoxyParamCaption})}
+
+Set the values of a certain column
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & number of the target column \\
+\hline
+{\em col} & array of values to be set into the column \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBoard_afd7dee6bf0ad7e9238b66209276d841e}\label{classBoard_afd7dee6bf0ad7e9238b66209276d841e}} 
+\index{Board@{Board}!setRow@{setRow}}
+\index{setRow@{setRow}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{setRow()}{setRow()}}
+{\footnotesize\ttfamily void Board\+::set\+Row (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{const std\+::vector$<$ int $>$ \&}]{row }\end{DoxyParamCaption})}
+
+Set the values of a certain row
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & number of the target row \\
+\hline
+{\em row} & array of values to be set into the row \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classBoard_a91bbb807985b48b6a5957c0e869be563}\label{classBoard_a91bbb807985b48b6a5957c0e869be563}} 
+\index{Board@{Board}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{outs,  }\item[{const \mbox{\hyperlink{classBoard}{Board}} \&}]{prt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+Overloaded stream insertion operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em outs} & output stream \\
+\hline
+{\em prt} & \mbox{\hyperlink{classBoard}{Board}} object that will be printed to the output stream\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+output stream 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBoard_a5da6d2d3350aca2233b22e55f9a8ab8e}\label{classBoard_a5da6d2d3350aca2233b22e55f9a8ab8e}} 
+\index{Board@{Board}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{ins,  }\item[{\mbox{\hyperlink{classBoard}{Board}} \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+Overloaded stream extraction operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em ins} & input stream \\
+\hline
+{\em obj} & object to read in\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+input stream 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Board.\+h\item 
+src/Board.\+cpp\end{DoxyCompactItemize}
