@@ -11,10 +11,10 @@ TEST_CASE("SudokuSolver constructors are called", "[constructor]")
     
     // default
     SudokuSolver A; 
-    std::vector<bool> c(9, false);
+    
 
     REQUIRE( A.board.getFilled() == 0 );
-    REQUIRE( A.getChecker() == c );
+    
     
     
     // alternate constructor
@@ -28,64 +28,6 @@ TEST_CASE("SudokuSolver constructors are called", "[constructor]")
     SudokuSolver C(B);
     REQUIRE( C == B );
     
-}
-
-TEST_CASE("SudokuSolver accessors are called", "[accessor]")
-{
-    SudokuSolver A;
-    std::vector<bool> c(9, false);
-
-    REQUIRE( A.getChecker() == c );
-}
-
-TEST_CASE("SudokuSolver mutators are called", "[mutator]")
-{
-    SudokuSolver A;
-    std::vector<bool> newChecker(9, true);
-    std::vector<bool> allFalse(9, false);
-
-
-    // set checker
-    A.setChecker(newChecker);
-    REQUIRE( A.getChecker() == newChecker );
-
-
-    // reset checker
-    A.resetChecker();
-    REQUIRE( A.getChecker() == allFalse );
-}
-
-TEST_CASE("Solve a row/column/block with 1 empty space", "[solving]")
-{
-    std::vector<int> test(9, -1);
-    for(int i = 0; i < 9; i++)
-        test[i] = i + 1;
-    std::vector<int> solvedTest = test;
-    test[5] = -1;
-
-
-    // solve row
-    SudokuSolver A;
-    A.board.setRow(3, test);
-        
-    A.solve8Full(3, 'r');
-    REQUIRE( A.board.getRow(3) == solvedTest );
-
-
-    // solve column
-    SudokuSolver B;
-    B.board.setCol(2, test);
-
-    B.solve8Full(2, 'c');
-    REQUIRE( B.board.getCol(2) == solvedTest );
-
-
-    // solve block
-    SudokuSolver C;
-    C.board.setBlock(8, test);
-
-    C.solve8Full(8, 'b');
-    REQUIRE( C.board.getBlock(8) == solvedTest );
 }
 
 TEST_CASE("Cross checker algorithms are called", "[solving]")

@@ -10,10 +10,7 @@
  * This class contains all methods focused on solving the sudoku board
  */
 class SudokuSolver
-{
-    private:
-        std::vector<bool> checker;  ///< tool for checking which numbers exist in a row
-    
+{    
     public:
         Board board;                ///< Board that will be solved
 
@@ -41,33 +38,6 @@ class SudokuSolver
          */
         ~SudokuSolver();
         
-        /**
-         * Get the checker array
-         *
-         * @return array of bools 
-         */
-        std::vector<bool> getChecker() const;
-
-        /**
-         * Set the checker array
-         *
-         * @param c array of bools to set the checker
-         */
-        void setChecker(const std::vector<bool>& c);
-
-        /**
-         * Reset the checker array to all false
-         */
-        void resetChecker();
-
-        /**
-         * Fill a row/column/block needing one more number
-         *
-         * @param n row/column/block number to fill
-         * @param type determines whether this is a row('r'), column('c'), or block('b')
-         */
-        void solve8Full(int n, char type);
-
         /**
          * Search through the rows and columns to attempt to fill in a number
          *
