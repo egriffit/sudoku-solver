@@ -7,34 +7,34 @@
 //----------------------------------------------------------------------------
 Board::Board()
 {
-    //initialize all values of the board to -1 to symbolize empty
+    // initialize all values of the board to -1 to symbolize empty
     board.assign(81, -1);
 }
 
 //----------------------------------------------------------------------------
 Board::Board(const std::vector<int>& b)
 {
-    //reserve memory
+    // reserve memory
     board.reserve(81);
         
-    //vector handles deep copy
+    // vector handles deep copy
     board = b;
 }
 
 //----------------------------------------------------------------------------
 Board::Board(const Board& src)
 {
-    //reserve memory
+    // reserve memory
     board.reserve(81);
 
-    //vector handles deep copy
+    // vector handles deep copy
     board = src.board;
 }
 
 //----------------------------------------------------------------------------
 Board::~Board()
 {
-    //vector handles deallocation
+    // vector handles deallocation
 }
 
 //----------------------------------------------------------------------------
@@ -64,11 +64,11 @@ std::vector<int> Board::getBlock(int n) const
 {
     std::vector<int> block;
 
-    //starting row and column of block
+    // starting row and column of block
     int r = (n / 3) * 3;
     int c = (n % 3) * 3;
         
-    //std::cerr << "Block " << n << ": " << r << ", " << c << "\n";
+    // std::cerr << "Block " << n << ": " << r << ", " << c << "\n";
 
     for(int i = r; i < r + 3; i++)
     {
@@ -84,8 +84,7 @@ std::vector<int> Board::getBlock(int n) const
 //----------------------------------------------------------------------------
 std::vector<int> Board::getBoard() const
 {
-    std::vector<int> copyBoard = this->board;
-    return copyBoard;
+    return this->board;
 }
 
 //----------------------------------------------------------------------------
@@ -142,7 +141,7 @@ int Board::getBlockFilled(int b) const
 {
     int count = 0;
 
-    //get block
+
     std::vector<int> block = this->getBlock(b);
 
     for(int i = 0; i < 9; i++)
@@ -262,18 +261,18 @@ void Board::display(std::ostream& outs) const
 
         for(int j = 0; j < 9; j++)
         {
-            //print 3 nums and then a separator
+            // print 3 nums and then a separator
             if(j == 3 || j == 6)
                 outs << "|| ";
 
                         
-            //print space if the board is empty there
+            // print space if the board is empty there
             if(this->board[(i * 9) + j] == -1)
                 outs << " ";
             else
                 outs << this->board[(i * 9) + j];
 
-            //print a separating space
+            // print a separating space
             if(j != 8)
                 outs << " ";
                         
@@ -281,7 +280,7 @@ void Board::display(std::ostream& outs) const
                 
             outs << "\n";
 
-            //dividing line between grids
+            // dividing line between grids
             if(i == 2 || i == 5)
             {
                 std::string divide(24, '=');
@@ -300,20 +299,20 @@ void Board::read(std::istream& ins)
 
     for(int i = 0; i < 9; i++)    
     {    
-        //remove dividers
+        // remove dividers
         if(i == 3 || i == 6)
             ins >> dividers;
 
 
         for(int j = 0; j < 9; j++)
         {
-            //remove dividers
+            // remove dividers
             if(j == 3 || j == 6)
                 ins >> dump >> dump;
 
             ins >> this->board[(i * 9) + j];
 
-            //std::cerr << this->board[(i * 9) + j] << std::endl;
+            // std::cerr << this->board[(i * 9) + j] << std::endl;
         }
     }
 }
