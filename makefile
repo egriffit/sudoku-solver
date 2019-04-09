@@ -1,44 +1,44 @@
-MAINPROG:=bin/sudoku-solver
+# compiler and compilation flags
 CC:=g++
 CPPFLAGS:=-std=c++11 -g -Wall
 
+# directory locations
 SRCDIR:=src
 BUILDDIR:=build
 TESTDIR:=test
+BINDIR:=bin
 
+# create build and bin directories if they do not exist
 $(shell mkdir -p $(BUILDDIR))
-$(shell mkdir -p bin)
+$(shell mkdir -p $(BINDIR))
 
+# scrape src directory for sources and convert them to objects
+MAINPROG:=$(BINDIR)/sudoku-solver
 SOURCES:=$(wildcard $(SRCDIR)/*.cpp)
 OBJECTS:=$(patsubst $(SRCDIR)/%.cpp,$(BUILDDIR)/%.o,$(SOURCES))
+
 
 TEST_MAIN:=$(TESTDIR)/testsMain.cpp
 TEST_SOURCES:=$(filter-out $(TEST_MAIN), $(wildcard $(TESTDIR)/*.cpp))
 TEST_OBJECT:=$(patsubst $(TESTDIR)/%.cpp,$(BUILDDIR)/%.o,$(TEST_MAIN))
-TESTER:=bin/tester
+TESTER:=$(BINDIR)/unitTester
 
-all: $(OBJECTS) $(MAINPROG)
+
+all: $(MAINPROG)
 
 $(MAINPROG): $(OBJECTS)
 	$(CC) $(CPPFLAGS) $^ -o $@
 
-#$(OBJECTS): $(SOURCES)
-#   $(CC) $(CPPFLAGS) $< -c -o $@
-
-
-build/Board.o: src/Board.cpp
+$(OBJECTS): $(BUILDDIR)/%.o : $(SRCDIR)/%.cpp
 	$(CC) $(CPPFLAGS) $< -c -o $@
-
-build/SudokuSolver.o: src/SudokuSolver.cpp
-	$(CC) $(CPPFLAGS) $< -c -o $@
-
-build/SudokuDriver.o: src/SudokuDriver.cpp
-	$(CC) $(CPPFLAGS) $< -c -o $@
+	
 
 
-test: $(TESTER)
 
-$(TESTER): $(TEST_OBJECT) test/testSolver.cpp test/testBoard.cpp build/Board.o build/SudokuSolver.o
+tests: $(TESTER)
+
+# remove main object from compilation of tests
+$(TESTER): $(TEST_OBJECT) $(TEST_SOURCES) $(filter-out build/SudokuDriver.o, $(OBJECTS))
 	$(CC) $(CPPFLAGS) $^ -o $@
 
 $(TEST_OBJECT): $(TEST_MAIN)
@@ -46,6 +46,8 @@ $(TEST_OBJECT): $(TEST_MAIN)
 
 
 
+
+.PHONY: help
 help:
 	@echo Sources: $(SOURCES)
 	@echo Objects: $(OBJECTS)
@@ -54,6 +56,7 @@ help:
 	@echo Test Object: $(TEST_OBJECT)
 
 
+.PHONY: clean
 clean:
 	rm -r build/ bin/
 
