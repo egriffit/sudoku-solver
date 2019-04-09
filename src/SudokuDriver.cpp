@@ -3,6 +3,14 @@
 
 #include "SudokuSolver.h"
 
+/**
+ * \file
+ * Driver that runs the solver
+ */
+
+/**
+ * Main function that handles reading and running the solver
+ */
 int main(int argc, char** argv)
 {
     if(argc != 2)

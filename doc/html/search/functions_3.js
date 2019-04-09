@@ -5,7 +5,6 @@ var searchData=
   ['getblockfilled',['getBlockFilled',['../classBoard.html#af2d5ce1344507df0e5e2bc1740427671',1,'Board']]],
   ['getboard',['getBoard',['../classBoard.html#ad5be47bf7147f81d13dc8c43bed56d14',1,'Board']]],
   ['getcell',['getCell',['../classBoard.html#a350edf489de5b95cd05813d3407ed291',1,'Board']]],
-  ['getchecker',['getChecker',['../classSudokuSolver.html#a18a71cda8cdb13daad05b60df2aaa4e9',1,'SudokuSolver']]],
   ['getcol',['getCol',['../classBoard.html#a602a815cd7e1db0c4ee0b6b4fa197e59',1,'Board']]],
   ['getcolempty',['getColEmpty',['../classBoard.html#a70ce6cf65b83acf5c53c50ac285ca2fa',1,'Board']]],
   ['getcolfilled',['getColFilled',['../classBoard.html#a967885e96fbec3a39ce20f626844352b',1,'Board']]],

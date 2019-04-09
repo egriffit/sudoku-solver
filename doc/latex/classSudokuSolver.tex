@@ -15,14 +15,6 @@
 \item 
 \mbox{\hyperlink{classSudokuSolver_a156d59e1e6445542fa97743240520670}{$\sim$\+Sudoku\+Solver}} ()
 \item 
-std\+::vector$<$ bool $>$ \mbox{\hyperlink{classSudokuSolver_a18a71cda8cdb13daad05b60df2aaa4e9}{get\+Checker}} () const
-\item 
-void \mbox{\hyperlink{classSudokuSolver_a27c3f23807b2fb87f3cb1af5ec304ca2}{set\+Checker}} (const std\+::vector$<$ bool $>$ \&c)
-\item 
-void \mbox{\hyperlink{classSudokuSolver_a823844a04229b5d76d3a7acfa075973d}{reset\+Checker}} ()
-\item 
-void \mbox{\hyperlink{classSudokuSolver_ab61378ce61a92444f6ca80654cc99aae}{solve8\+Full}} (int n, char type)
-\item 
 void \mbox{\hyperlink{classSudokuSolver_a768abb5a354e4d6b6573a5b98f10630a}{cross\+Check\+Block}} (int b, int to\+Search)
 \item 
 void \mbox{\hyperlink{classSudokuSolver_a60a71ba960a9290095d6ad73128ec374}{cross\+Check\+Row}} (int r, int to\+Search)
@@ -155,17 +147,6 @@ Display function
 {\em outs} & output stream \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classSudokuSolver_a18a71cda8cdb13daad05b60df2aaa4e9}\label{classSudokuSolver_a18a71cda8cdb13daad05b60df2aaa4e9}} 
-\index{SudokuSolver@{SudokuSolver}!getChecker@{getChecker}}
-\index{getChecker@{getChecker}!SudokuSolver@{SudokuSolver}}
-\doxysubsubsection{\texorpdfstring{getChecker()}{getChecker()}}
-{\footnotesize\ttfamily std\+::vector$<$ bool $>$ Sudoku\+Solver\+::get\+Checker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-Get the checker array
-
-\begin{DoxyReturn}{Returns}
-array of bools 
-\end{DoxyReturn}
 \mbox{\Hypertarget{classSudokuSolver_a314ca997c6029877e2483ed043948176}\label{classSudokuSolver_a314ca997c6029877e2483ed043948176}} 
 \index{SudokuSolver@{SudokuSolver}!operator$<$@{operator$<$}}
 \index{operator$<$@{operator$<$}!SudokuSolver@{SudokuSolver}}
@@ -198,40 +179,6 @@ Overloaded Logical Equivalence Operator
 \begin{DoxyReturn}{Returns}
 true if the boards are identical 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classSudokuSolver_a823844a04229b5d76d3a7acfa075973d}\label{classSudokuSolver_a823844a04229b5d76d3a7acfa075973d}} 
-\index{SudokuSolver@{SudokuSolver}!resetChecker@{resetChecker}}
-\index{resetChecker@{resetChecker}!SudokuSolver@{SudokuSolver}}
-\doxysubsubsection{\texorpdfstring{resetChecker()}{resetChecker()}}
-{\footnotesize\ttfamily void Sudoku\+Solver\+::reset\+Checker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-Reset the checker array to all false \mbox{\Hypertarget{classSudokuSolver_a27c3f23807b2fb87f3cb1af5ec304ca2}\label{classSudokuSolver_a27c3f23807b2fb87f3cb1af5ec304ca2}} 
-\index{SudokuSolver@{SudokuSolver}!setChecker@{setChecker}}
-\index{setChecker@{setChecker}!SudokuSolver@{SudokuSolver}}
-\doxysubsubsection{\texorpdfstring{setChecker()}{setChecker()}}
-{\footnotesize\ttfamily void Sudoku\+Solver\+::set\+Checker (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ bool $>$ \&}]{c }\end{DoxyParamCaption})}
-
-Set the checker array
-
-
-\begin{DoxyParams}{Parameters}
-{\em c} & array of bools to set the checker \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classSudokuSolver_ab61378ce61a92444f6ca80654cc99aae}\label{classSudokuSolver_ab61378ce61a92444f6ca80654cc99aae}} 
-\index{SudokuSolver@{SudokuSolver}!solve8Full@{solve8Full}}
-\index{solve8Full@{solve8Full}!SudokuSolver@{SudokuSolver}}
-\doxysubsubsection{\texorpdfstring{solve8Full()}{solve8Full()}}
-{\footnotesize\ttfamily void Sudoku\+Solver\+::solve8\+Full (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{char}]{type }\end{DoxyParamCaption})}
-
-Fill a row/column/block needing one more number
-
-
-\begin{DoxyParams}{Parameters}
-{\em n} & row/column/block number to fill \\
-\hline
-{\em type} & determines whether this is a row(\textquotesingle{}r\textquotesingle{}), column(\textquotesingle{}c\textquotesingle{}), or block(\textquotesingle{}b\textquotesingle{}) \\
-\hline
-\end{DoxyParams}
 \mbox{\Hypertarget{classSudokuSolver_afa9c3b803a409509357bf7054dc760f6}\label{classSudokuSolver_afa9c3b803a409509357bf7054dc760f6}} 
 \index{SudokuSolver@{SudokuSolver}!solveDriver@{solveDriver}}
 \index{solveDriver@{solveDriver}!SudokuSolver@{SudokuSolver}}

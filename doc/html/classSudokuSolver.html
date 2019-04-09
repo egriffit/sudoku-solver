@@ -83,14 +83,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a90f7b801455a93eae9d601eb76dab2d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a156d59e1e6445542fa97743240520670"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSudokuSolver.html#a156d59e1e6445542fa97743240520670">~SudokuSolver</a> ()</td></tr>
 <tr class="separator:a156d59e1e6445542fa97743240520670"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18a71cda8cdb13daad05b60df2aaa4e9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSudokuSolver.html#a18a71cda8cdb13daad05b60df2aaa4e9">getChecker</a> () const</td></tr>
-<tr class="separator:a18a71cda8cdb13daad05b60df2aaa4e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27c3f23807b2fb87f3cb1af5ec304ca2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSudokuSolver.html#a27c3f23807b2fb87f3cb1af5ec304ca2">setChecker</a> (const std::vector&lt; bool &gt; &amp;c)</td></tr>
-<tr class="separator:a27c3f23807b2fb87f3cb1af5ec304ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a823844a04229b5d76d3a7acfa075973d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSudokuSolver.html#a823844a04229b5d76d3a7acfa075973d">resetChecker</a> ()</td></tr>
-<tr class="separator:a823844a04229b5d76d3a7acfa075973d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab61378ce61a92444f6ca80654cc99aae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSudokuSolver.html#ab61378ce61a92444f6ca80654cc99aae">solve8Full</a> (int n, char type)</td></tr>
-<tr class="separator:ab61378ce61a92444f6ca80654cc99aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a768abb5a354e4d6b6573a5b98f10630a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSudokuSolver.html#a768abb5a354e4d6b6573a5b98f10630a">crossCheckBlock</a> (int b, int toSearch)</td></tr>
 <tr class="separator:a768abb5a354e4d6b6573a5b98f10630a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60a71ba960a9290095d6ad73128ec374"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSudokuSolver.html#a60a71ba960a9290095d6ad73128ec374">crossCheckRow</a> (int r, int toSearch)</td></tr>
@@ -345,25 +337,6 @@ Related Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a18a71cda8cdb13daad05b60df2aaa4e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18a71cda8cdb13daad05b60df2aaa4e9">&#9670;&nbsp;</a></span>getChecker()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; bool &gt; SudokuSolver::getChecker </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get the checker array</p>
-<dl class="section return"><dt>Returns</dt><dd>array of bools </dd></dl>
-
-</div>
-</div>
 <a id="a314ca997c6029877e2483ed043948176"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a314ca997c6029877e2483ed043948176">&#9670;&nbsp;</a></span>operator&lt;()</h2>
 
@@ -413,85 +386,6 @@ Related Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the boards are identical </dd></dl>
-
-</div>
-</div>
-<a id="a823844a04229b5d76d3a7acfa075973d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a823844a04229b5d76d3a7acfa075973d">&#9670;&nbsp;</a></span>resetChecker()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SudokuSolver::resetChecker </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Reset the checker array to all false </p>
-
-</div>
-</div>
-<a id="a27c3f23807b2fb87f3cb1af5ec304ca2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27c3f23807b2fb87f3cb1af5ec304ca2">&#9670;&nbsp;</a></span>setChecker()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SudokuSolver::setChecker </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; bool &gt; &amp;&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Set the checker array</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">c</td><td>array of bools to set the checker </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ab61378ce61a92444f6ca80654cc99aae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab61378ce61a92444f6ca80654cc99aae">&#9670;&nbsp;</a></span>solve8Full()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SudokuSolver::solve8Full </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>type</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Fill a row/column/block needing one more number</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">n</td><td>row/column/block number to fill </td></tr>
-    <tr><td class="paramname">type</td><td>determines whether this is a row('r'), column('c'), or block('b') </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
