@@ -173,6 +173,20 @@ void SudokuSolver::crossCheckBlock(int b, int toSearch)
     }
 
 
+
+    // if toSearch is not in the block, but there are also 0 available
+    // spaces, declare the board unsolvable
+    if(!(this->board.searchFor(b, toSearch, 'b')) && !found)
+    {
+        std::cout << "This board is unsolvable.\n"
+                  << "It is impossible to enter a " << toSearch
+                  << " into block " << b << std::endl;
+        std::exit(-1);
+    }
+
+
+
+
     // set the number
     int row = (b / 3) * 3 + (avail / 3);
     int col = (b % 3) * 3 + (avail % 3);
@@ -253,6 +267,16 @@ void SudokuSolver::crossCheckRow(int r, int toSearch)
     }
 
     
+    // if toSearch is not in the row, but there are also 0 available
+    // spaces, declare the board unsolvable
+    if(!(this->board.searchFor(r, toSearch, 'r')) && !found)
+    {
+        std::cout << "This board is unsolvable.\n"
+                  << "It is impossible to enter a " << toSearch
+                  << " into row " << r << std::endl;
+        std::exit(-1);
+    }
+
 
 
     // set the value in the correct cell
@@ -323,7 +347,17 @@ void SudokuSolver::crossCheckCol(int c, int toSearch)
             avail = i;
         }
     }
+    
 
+    // if toSearch is not in the column, but there are also 0 available
+    // spaces, declare the board unsolvable
+    if(!(this->board.searchFor(c, toSearch, 'c')) && !found)
+    {
+        std::cout << "This board is unsolvable.\n"
+                  << "It is impossible to enter a " << toSearch
+                  << " into column " << c << std::endl;
+        std::exit(-1);
+    }
 
     // set the value
     this->board.setCell(avail, c, toSearch);

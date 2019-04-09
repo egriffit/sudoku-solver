@@ -58,7 +58,6 @@ TEST_CASE("Cross checker algorithms are called", "[solving]")
 
     
     
-    
     // Row test
     SudokuSolver B;
 
