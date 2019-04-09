@@ -1,4 +1,4 @@
-#include "catch.hpp"    //CATCH testing framework
+#include "catch.hpp"    // CATCH testing framework
 #include "../src/SudokuSolver.h"
 #include "../src/Board.h"
 #include <cstdlib>
@@ -9,7 +9,7 @@
 TEST_CASE("SudokuSolver constructors are called", "[constructor]")
 {
     
-    //default
+    // default
     SudokuSolver A; 
     std::vector<bool> c(9, false);
 
@@ -17,14 +17,14 @@ TEST_CASE("SudokuSolver constructors are called", "[constructor]")
     REQUIRE( A.getChecker() == c );
     
     
-    //alternate constructor
+    // alternate constructor
     std::vector<int> testBoard(81, 0);
     Board test(testBoard);  
     SudokuSolver B(test);
     REQUIRE( B.board == test );
 
 
-    //copy constructor
+    // copy constructor
     SudokuSolver C(B);
     REQUIRE( C == B );
     
@@ -45,12 +45,12 @@ TEST_CASE("SudokuSolver mutators are called", "[mutator]")
     std::vector<bool> allFalse(9, false);
 
 
-    //set checker
+    // set checker
     A.setChecker(newChecker);
     REQUIRE( A.getChecker() == newChecker );
 
 
-    //reset checker
+    // reset checker
     A.resetChecker();
     REQUIRE( A.getChecker() == allFalse );
 }
@@ -64,7 +64,7 @@ TEST_CASE("Solve a row/column/block with 1 empty space", "[solving]")
     test[5] = -1;
 
 
-    //solve row
+    // solve row
     SudokuSolver A;
     A.board.setRow(3, test);
         
@@ -72,7 +72,7 @@ TEST_CASE("Solve a row/column/block with 1 empty space", "[solving]")
     REQUIRE( A.board.getRow(3) == solvedTest );
 
 
-    //solve column
+    // solve column
     SudokuSolver B;
     B.board.setCol(2, test);
 
@@ -80,7 +80,7 @@ TEST_CASE("Solve a row/column/block with 1 empty space", "[solving]")
     REQUIRE( B.board.getCol(2) == solvedTest );
 
 
-    //solve block
+    // solve block
     SudokuSolver C;
     C.board.setBlock(8, test);
 
@@ -94,7 +94,7 @@ TEST_CASE("Cross checker algorithms are called", "[solving]")
     SudokuSolver A;
 
     
-    //test that the algorithm writes if theres only one possible space
+    // test that the algorithm writes if theres only one possible space
     A.board.setCell(3, 1, 3);
     A.board.setCell(7, 2, 3);
     A.board.setCell(1, 5, 3);
@@ -105,7 +105,7 @@ TEST_CASE("Cross checker algorithms are called", "[solving]")
     REQUIRE( A.board.getCell(0, 0) == 3 );
 
 
-    //test that algorithm does not write if there are two empty spaces
+    // test that algorithm does not write if there are two empty spaces
     A.board.setCell(0, 0, -1);
     A.board.setCell(2, 8, -1);
 
@@ -131,7 +131,7 @@ TEST_CASE("Cross checker algorithms are called", "[solving]")
 
     REQUIRE( B == pre );
 
-    //test that the algirthm does write if there is one empty space
+    // test that the algirthm does write if there is one empty space
     B.board.setCell(8, 3, 3);
     
     B.crossCheckRow(2, 3);
@@ -144,7 +144,7 @@ TEST_CASE("Cross checker algorithms are called", "[solving]")
     SudokuSolver C;
 
 
-    //test that the algorithm won't write with multiple empty spaces
+    // test that the algorithm won't write with multiple empty spaces
     C.board.setCell(3, 1, 3);
     C.board.setCell(6, 2, 3);
     C.board.setCell(1, 3, 3);
@@ -177,7 +177,7 @@ TEST_CASE("Driver for the solver is called", "[solving]")
     
     std::vector<int> solvedBoard = testBoard;
 
-    //remove certain values of the board
+    // remove certain values of the board
     testBoard[6] = -1;
     testBoard[55] = -1;
     testBoard[23] = -1;
@@ -192,7 +192,7 @@ TEST_CASE("Driver for the solver is called", "[solving]")
     REQUIRE( A.board == solved );
 
 
-    //more robust test case
+    // more robust test case
     std::vector<int> boardA =
                 {-1,  4, -1, -1,  9, -1, -1,  3, -1,
                   7,  3, -1,  1,  4, -1, -1,  9, -1,

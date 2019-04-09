@@ -6,9 +6,9 @@
 SudokuSolver::SudokuSolver()
 {
     
-    //board constructor takes care of board
+    // board constructor takes care of board
     
-    //set all checker values to false
+    // set all checker values to false
     checker.assign(9, false);
 }
 
@@ -22,17 +22,17 @@ SudokuSolver::SudokuSolver(const Board& b)
 //----------------------------------------------------------------------------
 SudokuSolver::SudokuSolver(const SudokuSolver& src)
 {
-    //use copy constructor of Board class
+    // use copy constructor of Board class
     this->board = src.board;
 
-    //vector class ensures deep copy
+    // vector class ensures deep copy
     this->checker = src.getChecker();
 }
 
 //----------------------------------------------------------------------------
 SudokuSolver::~SudokuSolver()
 {
-    //vector handles deallocation
+    // vector handles deallocation
 }
 
 //----------------------------------------------------------------------------
@@ -96,8 +96,8 @@ void SudokuSolver::solve8Full(int n, char type)
     // find and set the empty cell to the missing number
     for(int i = 0; i < 9; i++)
     {
-        //if the number is missing, put that number in the empty cell
-        //must add 1 because values must be 1-9
+        // if the number is missing, put that number in the empty cell
+        // must add 1 because values must be 1-9
         if(!checker[i])
         {
             target[emptyCell] = i + 1;
@@ -114,7 +114,7 @@ void SudokuSolver::solve8Full(int n, char type)
     */
 
 
-    //set the appropriate construct
+    // set the appropriate construct
     if(type == 'r')
         this->board.setRow(n, target);
     else if(type == 'c')
@@ -122,7 +122,7 @@ void SudokuSolver::solve8Full(int n, char type)
     else if(type == 'b')
         this->board.setBlock(n, target);
 
-    //reset checker for next use
+    // reset checker for next use
     this->resetChecker();
 
 }
@@ -146,7 +146,7 @@ bool SudokuSolver::solveDriver()
 
     while(!(this->board == oldBoard))
     {
-        //keep track of the old board to track changes
+        // keep track of the old board to track changes
         oldBoard = this->board;
 
 
@@ -231,12 +231,12 @@ bool SudokuSolver::solveDriver()
             */
         }
 
-        //exit if board is full
+        // exit if board is full
         if(this->board.isFull())
             break;
 
         
-        //std::cerr << "\n" << this->board << "\n";
+        // std::cerr << "\n" << this->board << "\n";
 
     }
 
@@ -250,7 +250,7 @@ bool SudokuSolver::solveDriver()
 //----------------------------------------------------------------------------
 void SudokuSolver::crossCheckBlock(int b, int toSearch)
 {
-    //exit function if the block already has the number
+    // exit function if the block already has the number
     /*std::cerr << "Searching for " << toSearch << " in block " << b << ": "
               << this->board.searchFor(b, toSearch, 'b') << "\n";
     */
@@ -260,7 +260,7 @@ void SudokuSolver::crossCheckBlock(int b, int toSearch)
     std::vector<bool> availSpace(9, false);
     std::vector<int> block = this->board.getBlock(b);
 
-    //find all empty block spaces
+    // find all empty block spaces
     for(int i = 0; i < 9; i++)
     {
         if(block[i] == -1)
@@ -268,13 +268,13 @@ void SudokuSolver::crossCheckBlock(int b, int toSearch)
     }
 
 
-    //eliminate empty spaces by checking rows and columns
+    // eliminate empty spaces by checking rows and columns
     int rowStart = (b / 3) * 3;
     int colStart = (b % 3) * 3;
 
     for(int i = rowStart; i < rowStart + 3; i++)
     {
-        //check if that row of the block can be eliminated
+        // check if that row of the block can be eliminated
         if(this->board.searchFor(i, toSearch, 'r'))
         {
             int toElim = i - rowStart;     // tracks row to be eliminated
@@ -286,7 +286,7 @@ void SudokuSolver::crossCheckBlock(int b, int toSearch)
 
     for(int i = colStart; i < colStart + 3; i++)
     {
-        //check if col of the block can be eliminated
+        // check if col of the block can be eliminated
         if(this->board.searchFor(i, toSearch, 'c'))
         {
             int toElim = i - colStart;
@@ -296,14 +296,14 @@ void SudokuSolver::crossCheckBlock(int b, int toSearch)
         }
     }
 
-    //check and see if there is one available space left
+    // check and see if there is one available space left
     bool found = false;
     int avail = -1;
     for(int i = 0; i < 9; i++)
     {
         if(availSpace[i])
         {
-            //leave method if there is more than one available space
+            // leave method if there is more than one available space
             if(found)
                 return;
             
@@ -313,7 +313,7 @@ void SudokuSolver::crossCheckBlock(int b, int toSearch)
     }
 
 
-    //set the number
+    // set the number
     int row = (b / 3) * 3 + (avail / 3);
     int col = (b % 3) * 3 + (avail % 3);
     this->board.setCell(row, col, toSearch);
@@ -322,14 +322,14 @@ void SudokuSolver::crossCheckBlock(int b, int toSearch)
 //----------------------------------------------------------------------------
 void SudokuSolver::crossCheckRow(int r, int toSearch)
 {
-    //exit function if the number already exists
+    // exit function if the number already exists
     if(this->board.searchFor(r, toSearch, 'r'))
         return;
 
     std::vector<bool> availSpace(9, false);
     std::vector<int> row = this->board.getRow(r);
 
-    //if the cell is empty, add it to availability
+    // if the cell is empty, add it to availability
     for(int i = 0; i < 9; i++)
     {
         if(row[i] == -1)
@@ -341,7 +341,7 @@ void SudokuSolver::crossCheckRow(int r, int toSearch)
     // eliminate free space based on the blocks
     int blockStart = (r / 3) * 3;       // finds the starting of the 3 blocks
     
-    //std::cerr << blockStart << "\n";
+    // std::cerr << blockStart << "\n";
 
     for(int i = blockStart; i < blockStart + 3; i++)
     {
@@ -363,7 +363,7 @@ void SudokuSolver::crossCheckRow(int r, int toSearch)
     */
 
 
-    //eliminate free space based on columns
+    // eliminate free space based on columns
     for(int i = 0; i < 9; i++)
     {
         if(this->board.searchFor(i, toSearch, 'c'))
@@ -412,7 +412,7 @@ void SudokuSolver::crossCheckCol(int c, int toSearch)
     std::vector<int> col = this->board.getCol(c);
 
 
-    //set empty spaces to available
+    // set empty spaces to available
     for(int i = 0; i < 9; i++)
     {
         if(col[i] == -1)
@@ -420,14 +420,14 @@ void SudokuSolver::crossCheckCol(int c, int toSearch)
     }
 
 
-    //search through the blocks to eliminate spaces
+    // search through the blocks to eliminate spaces
     int blockStart = c / 3;
     for(int i = blockStart; i <= blockStart + 6; i += 3)
     {
-        //eliminate column spaces in that block
+        // eliminate column spaces in that block
         if(this->board.searchFor(i, toSearch, 'b'))
         {
-            int blockNum = (i - blockStart) / 3;    //first, second, or third
+            int blockNum = (i - blockStart) / 3;    // first, second, or third
 
             availSpace[(blockNum * 3)] = false;
             availSpace[(blockNum * 3) + 1] = false;
@@ -437,7 +437,7 @@ void SudokuSolver::crossCheckCol(int c, int toSearch)
 
 
 
-    //search through the rows to eliminate spaces
+    // search through the rows to eliminate spaces
     for(int i = 0; i < 9; i++)
     {
         if(this->board.searchFor(i, toSearch, 'r'))
@@ -447,14 +447,14 @@ void SudokuSolver::crossCheckCol(int c, int toSearch)
     }
 
 
-    //exit if there is more than one empty space
+    // exit if there is more than one empty space
     bool found = false;
     int avail = -1;
     for(int i = 0; i < 9; i++)
     {
         if(availSpace[i])
         {
-            //exit if already one space found
+            // exit if already one space found
             if(found)
                 return;
 
@@ -465,7 +465,7 @@ void SudokuSolver::crossCheckCol(int c, int toSearch)
     }
 
 
-    //set the value
+    // set the value
     this->board.setCell(avail, c, toSearch);
 
 }
